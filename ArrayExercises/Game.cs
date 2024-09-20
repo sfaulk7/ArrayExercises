@@ -32,6 +32,7 @@ namespace ArrayExercises
                 PrintHighest(ints);
                 PrintLowest(ints);
                 PrintHighestToLowest(ints);
+                PrintLowestToHighest(ints);
 
                 Console.WriteLine("");
                 string userInput = "";
@@ -74,7 +75,7 @@ namespace ArrayExercises
                 Console.Clear();
                 try
                 {
-                    int userNumberInput = Convert.ToInt32(userInput);
+                    int userNumberInput = Int32.Parse(userInput);
                     number1Typed = userNumberInput;
                 }
                 catch (FormatException)
@@ -93,7 +94,7 @@ namespace ArrayExercises
                 Console.Clear();
                 try
                 {
-                    int userNumberInput = Convert.ToInt32(userInput);
+                    int userNumberInput = Int32.Parse(userInput);
                     number2Typed = userNumberInput;
                 }
                 catch (FormatException)
@@ -110,19 +111,8 @@ namespace ArrayExercises
                 Console.WriteLine("Type the third number");
                 string userInput = Console.ReadLine();
                 Console.Clear();
-                try
-                {
-                    int userNumberInput = Convert.ToInt32(userInput);
-                    number3Typed = userNumberInput;
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("That is not a number");
-                }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("Whoa wayyy to high of a number. Try something lower");
-                }
+                Int32.TryParse(userInput, out int userNumberInput);
+                number3Typed = userNumberInput;
             }
             while (number4Typed == 0)
             {
@@ -254,6 +244,8 @@ namespace ArrayExercises
         {
             Array.Sort(array);
             Array.Reverse(array);
+            Console.WriteLine("");
+            Console.WriteLine("------------------------------");
             Console.WriteLine("HighestToLowest");
             Console.WriteLine(array[0]);
             Console.WriteLine(array[1]);
@@ -267,6 +259,8 @@ namespace ArrayExercises
         int[] PrintLowestToHighest(int[] array)
         {
             Array.Sort(array);
+            Console.WriteLine("");
+            Console.WriteLine("------------------------------");
             Console.WriteLine("LowestToHighest");
             Console.WriteLine(array[0]);
             Console.WriteLine(array[1]);
