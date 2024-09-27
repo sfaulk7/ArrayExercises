@@ -21,7 +21,7 @@ namespace ArrayExercises
         public void Run()
         {
             bool calculating = true;
-            while (calculating = true)
+            while (calculating == true)
             {
                 int[] ints = GetValues();
 
